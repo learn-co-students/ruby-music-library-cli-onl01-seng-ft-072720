@@ -1,12 +1,13 @@
 require 'pry'
 class Artist 
-  attr_accessor :name, :songs
+  attr_accessor :name, :songs, :genre
    @@all = []
    
   def initialize(name)
     @name = name 
    @@all.push(self)
    @songs = []
+   @genre = []
  end
  
  def self.all
@@ -31,6 +32,26 @@ end
  def songs
    @songs
  end
+  
+  #def genres 
+ #   @genre
+  #end
+  
+ def genres
+    s = []
+  g = Song.all.select {|song| song.artist == self}
+ g.each do |i|
+   s.push(i.genre)
+   # binding.pry 
+   # if i.artist == self 
+   #   s.push(i)
+  end
+  s.uniq
+end 
+#end
+# s 
+  #end
+
   
   def add_song(song)
         self.songs.push(song) if !self.songs.include?(song)
