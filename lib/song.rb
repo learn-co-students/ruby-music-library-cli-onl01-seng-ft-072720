@@ -5,7 +5,7 @@ class Song
   def initialize(name, artist="")
     @name = name 
    @@all.push(self)
-   if artist !="" then self.artist = artist
+   if artist !="" then @artist = artist
    
  end
  end
@@ -29,14 +29,15 @@ class Song
   s 
 end
   
- #   def artist=(artist)
-  #      artist.add_song(self)
+   # def artist=(artist)
+  #   artist.add_song(self)
   #  end
     
-   # def artist_name=(name)
-   # self.artist = Artist.find_or_create_by_name(name)
-   # binding.pry
-  #end
+    def artist=(artist)
+    a = artist.add_song(self)
+   # self.artist = Artist.add_song(song)
+   #binding.pry
+  end
   
       def self.find_or_create_by_name(name)
         if @@all.detect{|i| i.name == name}
