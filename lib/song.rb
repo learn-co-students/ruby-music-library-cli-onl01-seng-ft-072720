@@ -50,8 +50,10 @@ end
   
   def self.find_or_create_by_name(name)
   part_one = self.find_by_name(name)
+  #binding.pry
   if part_one == nil 
-    part_two = self.create_by_name(name)
+   
+    part_two = self.create(name)
   else part_one 
   end
 end
