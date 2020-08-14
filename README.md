@@ -1,4 +1,3 @@
-#test
 # Ruby Music Library
 
 ## Overview
