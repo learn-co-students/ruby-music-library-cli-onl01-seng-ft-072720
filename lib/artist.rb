@@ -33,8 +33,8 @@ end
  end
   
   def add_song(song)
-        self.songs << song if !self.songs.include?(song)
-        song.artist = self if song.artist == nil
+        self.songs.push(song) if !self.songs.include?(song)
+        song.artist = self if song.artist == nil 
     end
   
   

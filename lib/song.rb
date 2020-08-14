@@ -2,10 +2,10 @@ class Song
   attr_accessor :name, :artist 
    @@all = []
    
-  def initialize(name, artist="")
+  def initialize(name, artist=nil)
     @name = name 
    @@all.push(self)
-   if artist !="" then @artist = artist
+   if artist !=nil then self.artist=(artist)
    
  end
  end
@@ -34,7 +34,8 @@ end
   #  end
     
     def artist=(artist)
-    a = artist.add_song(self)
+      @artist = artist 
+    artist.add_song(self)
    # self.artist = Artist.add_song(song)
    #binding.pry
   end
