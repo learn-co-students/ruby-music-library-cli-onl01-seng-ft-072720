@@ -53,7 +53,7 @@ end
   #binding.pry
   if part_one == nil 
    
-    part_two = self.create(name)
+    self.new(name)
   else part_one 
   end
 end
