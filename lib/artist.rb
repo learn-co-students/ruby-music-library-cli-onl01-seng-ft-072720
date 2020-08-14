@@ -27,28 +27,37 @@ class Artist
   s.save
   s 
 end
+   
+ def songs
+   @songs
+ end
   
-  
-def add_song(new_song)
-  ss = []
-  s = Song.all 
-  s.each do |i|
-    #binding.pry
-    if i.name == new_song.name
-      ss.push(i)
+  def add_song(song)
+        self.songs << song if !self.songs.include?(song)
+        song.artist = self if song.artist == nil
     end
-  end
-  if ss == []
-     new_song.artist = self
-  @songs.push(new_song)
-
-ss.each do |i|
-  if i.artist.length == 0 
- new_song.artist = self
-  @songs.push(song)
-end
-end
-end 
+  
+  
+#def add_song(new_song)
+#  ss = []
+#  s = Song.all 
+ # s.each do |i|
+#    #binding.pry
+#    if i.name == new_song.name
+#      ss.push(i)
+##    end
+#  end
+#  if ss == []
+#     new_song.artist = self
+#  @songs.push(new_song)
+#
+#ss.each do |i|
+#  if i.artist.length == 0 
+# new_song.artist = self
+#  @songs.push(song)
+#end
+#end
+#end 
 
  # self.artist = Artist.find_or_create_by_name(name)
 # s = []
@@ -63,7 +72,7 @@ end
  # binding.pry 
  #if Song.all.include?(name) == false 
 #binding.pry 
-end
+#end
   
  # def songs
  #   s = []
@@ -76,10 +85,6 @@ end
 #end
  # songs
  # end
- 
- def songs
-   @songs
- end
-  
+
 
 end
