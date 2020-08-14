@@ -28,8 +28,8 @@ class Song
   def self.create(name)
   s = self.new(name)
   #s.name = name
-  s.save
-  s 
+  #s.save
+ # s 
 end
  
     def genre=(genre)
@@ -53,7 +53,7 @@ end
   #binding.pry
   if part_one == nil 
    
-    self.new(name)
+    self.create(name)
   else part_one 
   end
 end
