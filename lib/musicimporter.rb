@@ -1,0 +1,17 @@
+class MusicImporter
+  attr_accessor :path, :files #accepts a file path to parse MP3 files from
+
+  def initialize(path) #retrieves the path provided to the MusicImporter object
+    @path = path
+  end
+
+  def files
+    @files = Dir.glob("#{@path}/*mp3").collect{ |file| file.gsub("#{@path}/","")}  #loads all the MP3 files in the path directory/ normalizes the filename to just the MP3 filename with no path
+  end
+
+  def import
+    files.each {|file| Song.create_from_filename(file) } # imports the files into the library by invoking Song.create_from_filename
+  end
+
+
+end
