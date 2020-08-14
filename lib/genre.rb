@@ -32,5 +32,13 @@ end
         song.genre = self if song.genre == nil 
     end
   
+  def artists 
+    sss = []
+    ss = Song.all.select {|song| song.genre == self}
+    ss.each do |i|
+      sss.push(i.artist)
+    end
+    sss.uniq 
+  end
   
 end

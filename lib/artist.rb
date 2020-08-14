@@ -33,9 +33,7 @@ end
    @songs
  end
   
-  #def genres 
- #   @genre
-  #end
+ 
   
  def genres
     s = []
@@ -58,6 +56,9 @@ end
         song.artist = self if song.artist == nil 
     end
   
+  
+  
+end
   
 #def add_song(new_song)
 #  ss = []
@@ -107,5 +108,7 @@ end
  # songs
  # end
 
+ #def genres 
+ #   @genre
+  #end
 
-end

@@ -47,14 +47,25 @@ end
   end
   
       def self.find_or_create_by_name(name)
+        aa = []
         if @@all.detect{|i| i.name == name}
-     #    @@all.detect{|i| i.name == name}
+          aa.push(@@all.detect{|i| i.name == name})
+         aa.uniq 
+        # @@all.detect{|i| i.name == name}
+        binding.pry
    else
       self.new(name)
       # self.name
     end
   end
   
+  def self.find_by_name(name)
+  result = nil 
+  @@all.each do |i|
+    result = i if i.name == name 
+  end
+  result
+end
   
   
 end
