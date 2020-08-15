@@ -65,7 +65,7 @@ def list_songs_by_artist
    if all_artists_array.include?(input)
  all_songs = Song.all 
 
-binding.pry
+# binding.pry
 
  all_songs.each do |i|
    artist_songs.push(i.name) if i.artist.name == input
