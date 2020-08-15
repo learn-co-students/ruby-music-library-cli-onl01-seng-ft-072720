@@ -31,7 +31,7 @@ class MusicLibraryController
 end # ends call 
   
 def list_songs 
-list = Song.all.sort { |a, b| a.name <=> b.name }.each.with_index(1) do |song, i|
+Song.all.uniq.sort { |a, b| a.name <=> b.name }.each.with_index(1) do |song, i|
    # binding.pry
      puts "#{i}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
    end
@@ -117,7 +117,17 @@ i += 1
 end # ends DEF 
 
 
+def play_song
+  puts "Which song number would you like to play?"
+  input = gets.strip.to_i
+  test = list_songs.length 
+  if (input - 1) <= test
+ # binding.pry 
+  puts "Playing #{list_songs[input].name} by #{list_songs[input].artist.name}"
+end
+ # binding.pry
 
+end #ends DEF 
 
 
 
