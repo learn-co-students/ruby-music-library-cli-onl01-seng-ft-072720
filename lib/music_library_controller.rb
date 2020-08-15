@@ -79,4 +79,40 @@ def list_songs_by_artist
  end
  end # ends IF all_artists_array
 end # ends DEF 
+
+
+def list_songs_by_genre
+ puts "Please enter the name of a genre:"
+ 
+ input = gets.strip 
+ 
+ artist_songs = []
+ all_artists_array = []
+ all_artists = Artist.all 
+ all_artists.each do |i|
+   all_artists_array.push(i.name)
+ end
+   if all_artists_array.include?(input)
+ all_songs = Song.all
+
+# binding.pry
+
+ all_songs.each do |i|
+  if i.artist.name == input
+      artist_songs.push("#{i.name} - #{i.genre.name}")
+    end 
+    
+ end
+ 
+ artist_songs.sort { |a, b| a <=> b }.each.with_index(1) do |string, i|
+   puts "#{i}. #{string}"
+ end
+ end # ends IF all_artists_array
+end # ends DEF 
+
+
+
+
+
+
  end #ends Class 
