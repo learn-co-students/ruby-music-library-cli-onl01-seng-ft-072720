@@ -11,6 +11,7 @@ class MusicLibraryController
   def call 
     puts "Welcome to your music library!"
     puts "To list all of your songs, enter 'list songs'."
+
     puts "To list all of the artists in your library, enter 'list artists'."
     puts "To list all of the genres in your library, enter 'list genres'."
     puts "To list all of the songs by a particular artist, enter 'list artist'."
@@ -30,23 +31,11 @@ class MusicLibraryController
 
   
 def list_songs 
-    instance_list = Song.all
-   
-   new_instance = []
-  
-   instance_list.collect do |i|
-      new_instance.push([i.name, i.artist.name, i.genre.name])
-    end 
-   alph = new_instance.sort
-   
-   ##  binding.pry
-
-   i = 1 
-   alph.each do |j|
-     puts "#{i}. #{j[1]} - #{j[0]} - #{j[2]}"
-    i += 1 
-    end
-  end
+   sort = Song.all.sort { |a, b| a.name <=> b.name }.each_with_index do |song, i|
+     puts "#{i+1}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
+   end
 end
-  
-  end
+end 
+
+ 
+ end
