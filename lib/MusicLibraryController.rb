@@ -27,12 +27,26 @@ class MusicLibraryController
       i = 0 
     end 
   end
+
+  
+def list_songs 
+    instance_list = Song.all
+   
+   new_instance = []
+  
+   instance_list.collect do |i|
+      new_instance.push([i.name, i.artist.name, i.genre.name])
+    end 
+   alph = new_instance.sort
+   
+   ##  binding.pry
+
+   i = 1 
+   alph.each do |j|
+     puts "#{i}. #{j[1]} - #{j[0]} - #{j[2]}"
+    i += 1 
+    end
   end
-  
-  def list_songs 
-    a = Song.all
-    binding.pry
-  end
-  
-  
 end
+  
+  end
