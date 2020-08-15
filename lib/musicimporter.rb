@@ -14,7 +14,7 @@ class MusicImporter
       ff = []
     fff = []
     
- # Dir.glob(@path).each do|f|
+
   Dir.entries(@path).each do |f|
     ff.push(f)
    end
@@ -24,13 +24,11 @@ class MusicImporter
  end
    #binding.pry
     @@files = fff
-    #@files = @@files
-#binding.pry
- #binding.pry
+ 
   end
   
   def import
-    a = @@files 
+    a = files 
     #binding.pry
     a.each do |i|
     b =  Song.create_from_filename(i)
