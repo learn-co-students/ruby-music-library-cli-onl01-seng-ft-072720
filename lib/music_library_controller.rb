@@ -63,21 +63,20 @@ def list_songs_by_artist
    all_artists_array.push(i.name)
  end
    if all_artists_array.include?(input)
- all_songs = Song.all 
+ all_songs = Song.all
 
 # binding.pry
 
  all_songs.each do |i|
-   artist_songs.push(i.name) if i.artist.name == input
+  if i.artist.name == input
+      artist_songs.push("#{i.name} - #{i.genre.name}")
+    end 
+    
  end
  
- artist_songs.each do |i|
-   puts "#{i}"
+ artist_songs.sort { |a, b| a <=> b }.each.with_index(1) do |string, i|
+   puts "#{i}. #{string}"
  end
  end # ends IF all_artists_array
- 
- 
 end # ends DEF 
-
-
  end #ends Class 
