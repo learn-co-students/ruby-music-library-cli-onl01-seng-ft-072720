@@ -86,25 +86,25 @@ def list_songs_by_genre
  
  input = gets.strip 
  
- artist_songs = []
- all_artists_array = []
- all_artists = Artist.all 
+ genre_songs = []
+ all_genre_array = []
+ all_artists = Genre.all 
  all_artists.each do |i|
-   all_artists_array.push(i.name)
+   all_genre_array.push(i.name)
  end
-   if all_artists_array.include?(input)
+   if all_genre_array.include?(input)
  all_songs = Song.all
 
 # binding.pry
 
  all_songs.each do |i|
-  if i.artist.name == input
-      artist_songs.push("#{i.name} - #{i.genre.name}")
+  if i.genre.name == input
+      genre_songs.push("#{i.artist.name} - #{i.name}")
     end 
     
  end
- 
- artist_songs.sort { |a, b| a <=> b }.each.with_index(1) do |string, i|
+ binding.pry
+ genre_songs.sort { |a, b| a <=> b }.each.with_index(1) do |string, i|
    puts "#{i}. #{string}"
  end
  end # ends IF all_artists_array
