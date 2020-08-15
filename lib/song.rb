@@ -69,6 +69,11 @@ end
  end
   
   
+  def self.new_from_filename(file)
+  self.create(file)
+end
+  
+  
 end
 
  # def self.find_or_create_by_name(name)
