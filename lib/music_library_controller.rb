@@ -54,7 +54,21 @@ end
 def list_songs_by_artist
  puts "Please enter the name of an artist:"
  input = gets.strip 
-end
+ 
+ artist_songs = []
+ all_artists = Artist.all 
+ all_songs = Song.all 
+ all_songs.each do |i|
+   artist_songs.push(i.name) if i.artist.name == input
+ end
+ 
+ all_songs.each do |i|
+   puts "#{i}"
+ end
+   
+ 
+ 
+end # ends DEF 
 
 
  end #ends Class 
