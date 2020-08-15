@@ -30,7 +30,8 @@ class MusicLibraryController
   end
   
   def list_songs 
-    
+    a = Song.all
+    binding.pry
   end
   
   
