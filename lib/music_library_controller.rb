@@ -26,27 +26,30 @@ class MusicLibraryController
       i = 1 
     else
       i = 0 
-    end 
-  end
-
+    end  #ends If 
+  end # ends While 
+end # ends call 
   
 def list_songs 
-
-   list = Song.all.sort { |a, b| a.name <=> b.name }.each.with_index(1) do |song, i|
+list = Song.all.sort { |a, b| a.name <=> b.name }.each.with_index(1) do |song, i|
    # binding.pry
      puts "#{i}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
-    
    end
 end
 
-end 
 
 def list_artists
-  list = Artist.all.sort { |a, b| a.name <=> b.name }.each.with_index(1) do |artist, i|
-    puts "#{i}. #{artist}""
+ Artist.all.uniq.sort { |a, b| a.name <=> b.name }.each.with_index(1) do |artist, i|
+    puts "#{i}. #{artist.name}"
     end
- 
 end
 
- 
- end
+def list_genres
+ Genre.all.uniq.sort { |a, b| a.name <=> b.name }.each.with_index(1) do |genre, i|
+    puts "#{i}. #{genre.name}"
+    end
+end
+
+
+
+ end #ends Class 
