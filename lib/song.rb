@@ -70,13 +70,20 @@ end
   
   
   def self.new_from_filename(file)
-    f = file.split("-")
-   song = f[1].strip
-   artistt = f[0].strip
-    #binding.pry
+    f = file.split(" - ")
+   song_name = f[1]
+   artist_name = f[0]
+   genre_name = f[2].gsub(".mp3", "")
+   # binding.pry
    
-   self.new(song)
-   artistt.add_song(self)
+  
+   artist = Artist.find_or_create_by_name(artist_name)
+   genre = Genre.find_or_create_by_name(genre_name)
+   
+   
+   self.new(song_name, artist, genre)
+   
+  # artist.add_song(song)
    
    #self.new(song, artistt)
    #self.create(song, artist=artistt)
@@ -95,6 +102,7 @@ end
  # artistt.add_song(song)
  #artist=(artistt)
  # a = artist=(artistt)
+ # song = Song.find_or_create_by_name(song_name)
 end
   
   
