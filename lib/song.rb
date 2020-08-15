@@ -1,4 +1,6 @@
 class Song 
+  extend Concerns::Findable
+ # extend Findable
   attr_accessor :name, :artist, :genre
    @@all = []
    
@@ -47,25 +49,24 @@ end
   end
   
     
-  
+  # THIS ONE WORKED 
   def self.find_or_create_by_name(name)
   part_one = self.find_by_name(name)
   #binding.pry
   if part_one == nil 
-   
-    self.create(name)
+   self.create(name)
   else part_one 
-  end
+ end
 end
   
-  
+    # THIS ONE WORKED 
   def self.find_by_name(name)
   result = nil 
   @@all.each do |i|
     result = i if i.name == name 
   end
   result
-end
+ end
   
   
 end
