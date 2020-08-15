@@ -70,7 +70,31 @@ end
   
   
   def self.new_from_filename(file)
-  self.create(file)
+    f = file.split("-")
+   song = f[1].strip
+   artistt = f[0].strip
+    #binding.pry
+   
+   self.new(song)
+   artistt.add_song(self)
+   
+   #self.new(song, artistt)
+   #self.create(song, artist=artistt)
+   #artist.name = artistt
+   #Artist.create(self)
+   
+  # if find_by_name(song) == false
+  # a =   self.new(song, artistt)
+  #self.new(song)
+#else
+  #file 
+   # end 
+  #  self.find_or_create_by_name(song)
+    
+   # self.new(song, artistt)
+ # artistt.add_song(song)
+ #artist=(artistt)
+ # a = artist=(artistt)
 end
   
   
