@@ -119,13 +119,19 @@ end # ends DEF
 
 def play_song
   puts "Which song number would you like to play?"
-  input = gets.strip.to_i
-  test = list_songs.length 
-  if (input - 1) <= test
+  
  # binding.pry 
-  puts "Playing #{list_songs[input].name} by #{list_songs[input].artist.name}"
-end
+  
  # binding.pry
+a = Song.all.uniq.sort { |a, b| a.name <=> b.name }
+  puts "Playing #{a[input].name by #{a[input].artist.name}"
+end
+end
+
+## cut below here 
+##input = gets.strip.to_i
+ ## test = list_songs.length 
+ ## if (input - 1) <= test
 
 end #ends DEF 
 
