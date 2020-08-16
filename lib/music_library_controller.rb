@@ -122,7 +122,7 @@ all_songs_array = []
 all_songs = Song.all.uniq.sort { |a, b| a.name <=> b.name }
 puts "Which song number would you like to play?"
 input = gets.strip.to_i
-if input <= all_songs.length 
+if (input <= all_songs.length) || input > 0 
 puts "Playing #{all_songs[input - 1].name} by #{all_songs[input - 1].artist.name}"
 end #ends IF 
 end #ends DEF 
