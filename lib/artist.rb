@@ -2,7 +2,9 @@ require 'pry'
 
 class Artist
     
-    attr_accessor :name, :songs
+    attr_accessor :name
+    attr_reader :songs
+    extend Concerns::Findable
 
     @@all = []
     
@@ -37,6 +39,13 @@ class Artist
         if self.songs.include?(song) == false
             self.songs << song
         end
+    end
+
+    def genres
+        genre_arr =  self.songs.collect do |songs|
+            songs.genre
+        end 
+        genre_arr.uniq
     end
 
 end
